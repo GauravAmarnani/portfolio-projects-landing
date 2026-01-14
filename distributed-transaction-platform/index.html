@@ -80,6 +80,16 @@
       color: #94a3b8;
     }
   </style>
+
+  <script>
+    function liveNotAvailable() {
+      alert(
+        "Live deployment is currently in progress.\n\n" +
+        "Please refer to the source code for architecture and implementation details."
+      );
+    }
+  </script>
+  
 </head>
 
 <body>
@@ -89,7 +99,10 @@
 
     <!-- Top Actions -->
     <div class="actions">
+      <!--
       <a class="live" href="https://jpmcdemo.gauravamarnani.in" target="_blank">Live Demo</a>
+      -->
+      <a class="live" onclick="liveNotAvailable()">Live Demo</a>
       <a class="source" href="https://github.com/GauravAmarnani/distributed-transaction-platform" target="_blank">Source Code</a>
     </div>
 
@@ -206,7 +219,10 @@
 
     <!-- Bottom Actions -->
     <div class="actions">
+      <!--
       <a class="live" href="https://jpmcdemo.gauravamarnani.in" target="_blank">Live Demo</a>
+      -->
+      <a class="live" onclick="liveNotAvailable()">Live Demo</a>
       <a class="source" href="https://github.com/GauravAmarnani/distributed-transaction-platform" target="_blank">Source Code</a>
     </div>
 
