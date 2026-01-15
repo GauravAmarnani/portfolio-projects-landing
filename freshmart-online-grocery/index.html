@@ -7,37 +7,79 @@
 
   <style>
     body {
-      font-family: system-ui;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
       background-color: #0f172a;
       color: #e5e7eb;
       padding: 40px 20px;
     }
+
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
     }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin-top: 32px;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
     p {
-      line-height: 1.6;
+      line-height: 1.65;
+      color: #cbd5f5;
+      margin: 10px 0;
+    }
+
+    ul {
+      margin-left: 20px;
       color: #cbd5f5;
     }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .actions {
+      margin: 14px 0 26px 0;
+    }
+
     .actions a {
       display: inline-block;
-      margin-right: 12px;
-      padding: 10px 16px;
+      margin-right: 14px;
+      padding: 10px 18px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.95rem;
     }
+
     .live {
       background: #2563eb;
       color: #ffffff;
     }
+
     .source {
       border: 1px solid #334155;
       color: #e5e7eb;
     }
+
+    footer {
+      margin-top: 48px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
   </style>
-    
+
   <script>
     function liveNotAvailable() {
       alert(
@@ -51,7 +93,8 @@
 
 <body>
   <div class="container">
-    <h1>FreshMart: Online Grocery System</h1>
+
+    <h1>FreshMart – Online Grocery System</h1>
 
     <div class="actions">
       <!--
@@ -62,18 +105,50 @@
     </div>
 
     <p>
-      A microservices-based online grocery platform implementing RESTful architecture
-      with inter-service communication using Feign Clients.
+      <span class="highlight">FreshMart</span> is an online grocery platform designed
+      to provide users with a smooth purchasing experience while offering products
+      at competitive prices without compromising quality.
     </p>
 
     <p>
-      <strong>My Contribution:</strong> Built all microservices (Admin, Customer, Shop,
-      Eureka Server) and integrated them with Angular using HttpClient.
+      The system enables users to browse products, place orders, and manage
+      interactions through a <span class="highlight">scalable, service-oriented backend</span>
+      built using modern microservices principles.
     </p>
 
+    <h2>Engineering Focus</h2>
+
     <p>
-      <strong>Tech Stack:</strong> Spring Boot, REST, Microservices, Angular
+      The project focuses on building a <span class="highlight">modular and extensible backend</span>
+      capable of supporting real-world e-commerce workflows while maintaining
+      clean separation of responsibilities across services.
     </p>
+
+    <h2>Architecture & Design</h2>
+
+    <ul>
+      <li>REST-based microservices architecture</li>
+      <li>Service-to-service communication using <span class="highlight">Feign Clients</span></li>
+      <li>Service discovery and centralized configuration</li>
+      <li>Clear domain separation across Admin, Customer, and Shop services</li>
+    </ul>
+
+    <h2>Key Capabilities</h2>
+
+    <ul>
+      <li>User-friendly product browsing and order placement</li>
+      <li>Backend services designed for scalability and maintainability</li>
+      <li>Clean API contracts for frontend integration</li>
+      <li>Support for future feature expansion without architectural rework</li>
+    </ul>
+
+    <h2>Technology Stack</h2>
+
+    <ul>
+      <li><span class="highlight">Backend:</span> Java, Spring Boot, REST, Microservices</li>
+      <li><span class="highlight">Frontend:</span> Angular</li>
+      <li><span class="highlight">Communication:</span> Feign Client</li>
+    </ul>
 
     <div class="actions">
       <!--
@@ -82,7 +157,12 @@
       <a class="live" onclick="liveNotAvailable()">Live Demo</a>
       <a class="source" href="https://github.com/GauravAmarnani/freshmart-online-grocery" target="_blank">Source Code</a>
     </div>
-    
+
+    <footer>
+      This project demonstrates backend system design for a real-world
+      e-commerce use case, emphasizing scalability, clarity, and maintainability.
+    </footer>
+
   </div>
 </body>
 </html>
