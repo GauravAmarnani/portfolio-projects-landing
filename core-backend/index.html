@@ -1,1 +1,110 @@
-<h1>THE CORE BACK-END PROJECT DETAILS</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Projects | Gaurav Amarnani</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --disabled: #cbd5e1;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        html { scroll-behavior: smooth; }
+        
+        /* Navigation */
+        nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.25rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
+        
+        /* Header / Hero Section */
+        header { text-align: center; padding: 5rem 10%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
+        header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+        
+        /* Project Section */
+        .container { max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
+        .project-card { background: white; border-radius: 8px; padding: 2.5rem; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
+        .project-title { font-size: 1.75rem; color: var(--primary); margin-bottom: 1rem; }
+        .tech-stack { margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tech-tag { background: var(--bg-light); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0; }
+        .project-desc { margin-bottom: 2rem; color: var(--text-muted); }
+        
+        /* Buttons */
+        .btn-group { display: flex; gap: 1rem; }
+        .btn { padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 600; text-align: center; transition: all 0.3s; cursor: pointer; border: none; font-size: 0.95rem; }
+        .btn-source { background: var(--primary); color: white; }
+        .btn-source:hover { background: #152b65; }
+        .btn-live { background: var(--bg-light); color: var(--text-dark); border: 1px solid #cbd5e1; }
+        .btn-disabled { opacity: 0.6; cursor: not-allowed; position: relative; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 2rem; background: var(--text-dark); color: white; margin-top: 4rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; }
+            .btn-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Gaurav Amarnani</a>
+        <div class="nav-links">
+            <a href="#distributed-tx">Distributed Transaction Platform</a>
+            <a href="#freshmart">FreshMart E-commerce</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Core System Architecture & Microservices</h1>
+        <p>A showcase of highly scalable, fault-tolerant backend systems built utilizing Java, Spring Boot, Kafka, and modern cloud deployment patterns. These projects demonstrate my expertise in resolving distributed data consistency and optimizing API architectures.</p>
+    </header>
+
+    <div class="container">
+        <section id="distributed-tx" class="project-card">
+            <h2 class="project-title">Distributed Transaction Platform</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Saga Orchestration</span>
+                <span class="tech-tag">Apache Kafka</span>
+                <span class="tech-tag">Microservices</span>
+            </div>
+            <p class="project-desc">A banking-grade system architected to handle complex, distributed financial transactions. Implemented Saga Orchestration alongside Kafka to ensure 100% data consistency across distributed nodes. Integrated idempotency patterns to successfully eliminate "dual-write" failures, allowing the processing of thousands of secure transactions without any data loss.</p>
+            <div class="btn-group">
+                <a href="https://github.com/your-username/distributed-tx" target="_blank" class="btn btn-source">View Source Code</a>
+                <button class="btn btn-live btn-disabled" title="Live environment is currently offline for scheduled infrastructure maintenance and AWS updates.">Visit Live Project</button>
+            </div>
+        </section>
+
+        <section id="freshmart" class="project-card">
+            <h2 class="project-title">FreshMart (Scalable E-commerce)</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">Feign Client</span>
+                <span class="tech-tag">Resilience4j</span>
+            </div>
+            <p class="project-desc">Engineered a comprehensive REST-based microservices architecture designed for high availability. Implemented critical client-side load balancing using Feign and robust fault tolerance mechanisms via Resilience4j. This optimization successfully reduced inter-service latency by 150ms and ensured system stability during simulated peak loads.</p>
+            <div class="btn-group">
+                <a href="https://github.com/your-username/freshmart" target="_blank" class="btn btn-source">View Source Code</a>
+                <button class="btn btn-live btn-disabled" title="Live environment is currently offline for scheduled infrastructure maintenance and AWS updates.">Visit Live Project</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Gaurav Amarnani. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
