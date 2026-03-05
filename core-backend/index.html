@@ -3,125 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backend Systems | Gaurav Amarnani</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Backend Portfolio | Gaurav Amarnani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4f7f9;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --primary: #2563eb;
-            --primary-glow: rgba(37, 99, 235, 0.4);
+            --bg: #f8fafc;
+            --primary: #1e40af;
+            --secondary: #3b82f6;
+            --text: #0f172a;
+            --text-light: #64748b;
+            --glass: rgba(255, 255, 255, 0.9);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; overflow-x: hidden; position: relative; }
-        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.6; }
+        
+        /* Navigation */
+        nav { position: sticky; top: 0; background: var(--glass); backdrop-filter: blur(10px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
+        .nav-name { font-weight: 800; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
 
-        /* Background Mesh Gradient Blobs */
-        .blob { position: absolute; filter: blur(80px); z-index: -1; opacity: 0.6; border-radius: 50%; }
-        .blob-1 { top: -100px; left: -100px; width: 400px; height: 400px; background: #bfdbfe; }
-        .blob-2 { top: 40%; right: -150px; width: 500px; height: 500px; background: #ddd6fe; }
-
-        /* Glassmorphism Navbar */
-        nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.3); }
-        .logo { font-size: 1.2rem; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -0.5px; }
-        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* Hero Section */
-        header { text-align: center; padding: 7rem 10% 5rem; }
-        .badge { display: inline-block; padding: 0.4rem 1rem; background: #e0f2fe; color: #0369a1; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.5px; text-transform: uppercase; }
-        header h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1.5px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header p { font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; }
+        /* Hero / Tech Overview */
+        header { padding: 80px 10% 40px; text-align: center; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
+        .tech-pill { display: inline-block; padding: 5px 15px; background: #dbeafe; color: #1e40af; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 15px; }
+        header h1 { font-size: 3rem; margin-bottom: 20px; letter-spacing: -1px; }
+        header p { max-width: 700px; margin: 0 auto; color: var(--text-light); font-size: 1.1rem; }
 
         /* Project Cards */
-        .container { max-width: 900px; margin: 0 auto 5rem; padding: 0 20px; }
-        .project-card { background: var(--card-bg); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.6); border-radius: 20px; padding: 3rem; margin-bottom: 3rem; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.15); }
-        .project-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem; }
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .project-card { background: white; border-radius: 16px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .project-title { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
         
-        /* Sleek Tech Tags */
-        .tech-stack { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
-        .tech-tag { background: #f1f5f9; color: #334155; padding: 0.4rem 1rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600; border: 1px solid #e2e8f0; }
+        .stack-list { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .tag { background: #f1f5f9; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: #475569; }
 
-        .project-desc { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2.5rem; }
-
-        /* Premium Buttons */
-        .btn-group { display: flex; gap: 1rem; }
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.8rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; border: none; cursor: pointer; }
-        .btn svg { width: 18px; height: 18px; margin-right: 8px; }
-        .btn-source { background: var(--text-main); color: white; box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3); }
-        .btn-source:hover { background: var(--primary); box-shadow: 0 10px 20px -10px var(--primary-glow); transform: translateY(-2px); }
+        .btn-container { display: flex; gap: 15px; margin-top: 30px; }
+        .btn { padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-github { background: var(--text); color: white; }
+        .btn-github:hover { background: #334155; }
         
-        /* Custom Tooltip for Disabled Button */
-        .btn-live { background: transparent; color: #94a3b8; border: 2px dashed #cbd5e1; cursor: not-allowed; position: relative; }
-        .btn-live::after { content: attr(data-tooltip); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%) scale(0.95); background: #1e293b; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 400; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.2s ease; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .btn-live::before { content: ''; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #1e293b transparent transparent transparent; opacity: 0; visibility: hidden; transition: all 0.2s ease; }
-        .btn-live:hover::after, .btn-live:hover::before { opacity: 1; visibility: visible; transform: translateX(-50%) scale(1); }
-
-        footer { text-align: center; padding: 3rem; color: var(--text-muted); font-size: 0.9rem; }
+        /* Disabled Link with Hover Tooltip */
+        .btn-live { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; position: relative; }
+        .btn-live:hover::after { content: "System currently down for maintenance/updation"; position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 8px 12px; border-radius: 6px; font-size: 0.7rem; white-space: nowrap; font-weight: 400; }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .project-card { padding: 2rem; }
-            .btn-group { flex-direction: column; }
+            header h1 { font-size: 2rem; }
+            .btn-container { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-
     <nav>
-        <a href="#" class="logo">Gaurav.Dev</a>
+        <a href="#" class="nav-name">Gaurav Amarnani</a>
         <div class="nav-links">
-            <a href="#distributed-tx">Distributed Tx</a>
-            <a href="#freshmart">FreshMart API</a>
+            <a href="#distributed">Distributed Systems</a>
+            <a href="#ecommerce">E-commerce</a>
         </div>
     </nav>
 
     <header>
-        [span_0](start_span)<span class="badge">Backend & Cloud Systems[span_0](end_span)</span>
-        <h1>Architecting at Scale.</h1>
-        <p>Showcasing high-performance Java microservices, distributed transaction platforms, and cloud-native architecture.</p>
+        <span class="tech-pill">CORE SYSTEM ARCHITECTURE</span>
+        <h1>Backend & Cloud Systems</h1>
+        <p>Expertise in building banking-grade distributed platforms using <b>Java 17+</b>, <b>Spring Boot</b>, and <b>Kafka</b>. Focused on Saga Orchestration, idempotency, and high-availability cloud infrastructure.</p>
     </header>
 
     <div class="container">
-        <section id="distributed-tx" class="project-card">
-            <h2 class="project-title">Distributed Transaction Platform</h2>
-            <div class="tech-stack">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">Saga Orchestration</span>
-                <span class="tech-tag">Apache Kafka</span>
+        <section id="distributed" class="project-card">
+            <div class="card-header">
+                <h2 class="project-title">Distributed Transaction Platform</h2>
+                <div class="stack-list">
+                    <span class="tag">Kafka</span> <span class="tag">Saga Pattern</span> <span class="tag">Java</span>
+                </div>
             </div>
-            [span_1](start_span)<p class="project-desc">Built a banking-grade system using Saga Orchestration and Kafka, ensuring 100% data consistency across distributed nodes[span_1](end_span). [span_2](start_span)Implemented idempotency patterns to eliminate "dual-write" failures, processing thousands of secure financial transactions without data loss[span_2](end_span).</p>
-            <div class="btn-group">
-                <a href="#" class="btn btn-source">
-                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    Source Code
-                </a>
-                <button class="btn btn-live" data-tooltip="Live instance is offline for scheduled AWS infrastructure maintenance.">Visit Live Project</button>
+            <p>A resilient banking-grade system ensuring 100% data consistency across distributed nodes. Implemented idempotency patterns to eliminate "dual-write" failures, processing thousands of secure financial transactions without data loss.</p>
+            <div class="btn-container">
+                <a href="#" class="btn btn-github">Source Code</a>
+                <button class="btn btn-live">Live Project</button>
             </div>
         </section>
 
-        <section id="freshmart" class="project-card">
-            <h2 class="project-title">FreshMart (Scalable E-commerce)</h2>
-            <div class="tech-stack">
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">Feign Client</span>
-                <span class="tech-tag">Resilience4j</span>
+        <section id="ecommerce" class="project-card">
+            <div class="card-header">
+                <h2 class="project-title">FreshMart (Scalable E-commerce)</h2>
+                <div class="stack-list">
+                    <span class="tag">Spring Boot</span> <span class="tag">Resilience4j</span> <span class="tag">Feign</span>
+                </div>
             </div>
-            [span_3](start_span)<p class="project-desc">Engineered a REST-based micro-services architecture with Spring Boot[span_3](end_span). [span_4](start_span)Implemented client-side load balancing (Feign) and fault tolerance (Resilience4j), reducing inter-service latency by 150ms and ensuring high availability during peak loads[span_4](end_span).</p>
-            <div class="btn-group">
-                <a href="#" class="btn btn-source">
-                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    Source Code
-                </a>
-                <button class="btn btn-live" data-tooltip="Live instance is offline for scheduled AWS infrastructure maintenance.">Visit Live Project</button>
+            <p>Engineered a REST-based micro-services architecture using Spring Boot. Integrated client-side load balancing and fault tolerance, reducing inter-service latency by 150ms and ensuring high availability during peak loads.</p>
+            <div class="btn-container">
+                <a href="#" class="btn btn-github">Source Code</a>
+                <button class="btn btn-live">Live Project</button>
             </div>
         </section>
     </div>
-    <footer><p>&copy; 2026 Gaurav Amarnani.</p></footer>
 </body>
 </html>
