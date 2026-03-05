@@ -1,1 +1,104 @@
-<h1>AI DRIVER SOLUTIONS DETAILS</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solutions | Gaurav Amarnani</title>
+    <style>
+        /* Reusing the exact same core variables for brand consistency */
+        :root {
+            --primary: #0f172a; /* Slightly darker for AI theme */
+            --secondary: #0ea5e9;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        html { scroll-behavior: smooth; }
+        
+        nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.25rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
+        
+        header { text-align: center; padding: 5rem 10%; background: linear-gradient(135deg, #1e293b, #0f172a); color: white; }
+        header h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #38bdf8; }
+        header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+        
+        .container { max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
+        .project-card { background: white; border-radius: 8px; padding: 2.5rem; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--secondary); }
+        .project-title { font-size: 1.75rem; color: var(--primary); margin-bottom: 1rem; }
+        .tech-stack { margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tech-tag { background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #bae6fd; }
+        .project-desc { margin-bottom: 2rem; color: var(--text-muted); }
+        
+        .btn-group { display: flex; gap: 1rem; }
+        .btn { padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 600; text-align: center; transition: all 0.3s; cursor: pointer; border: none; font-size: 0.95rem; }
+        .btn-source { background: var(--primary); color: white; }
+        .btn-source:hover { background: #000; }
+        .btn-live { background: var(--bg-light); color: var(--text-dark); border: 1px solid #cbd5e1; }
+        .btn-disabled { opacity: 0.6; cursor: not-allowed; position: relative; }
+        
+        footer { text-align: center; padding: 2rem; background: var(--primary); color: white; margin-top: 4rem; }
+        
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; }
+            .btn-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Gaurav Amarnani</a>
+        <div class="nav-links">
+            <a href="#reunite">ReUnite (ML)</a>
+            <a href="#smart-assistant">Smart ML Chat-bot</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>AI-Driven Solutions & Prototypes</h1>
+        <p>Exploring the intersection of Machine Learning, Generative AI, and full-stack development. These projects feature implementations of PCA/GANs for facial recognition and LLM integrations for intelligent workflow automation, driven by modern Java and Python frameworks.</p>
+    </header>
+
+    <div class="container">
+        <section id="reunite" class="project-card">
+            <h2 class="project-title">ReUnite (Machine Learning)</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PCA / GANs</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">Facial Recognition</span>
+            </div>
+            <p class="project-desc">Developed an advanced facial recognition system to identify age-progressed features, specifically targeted at aiding in the search for missing persons. Achieved a highly reliable 94% accuracy rate across 5,000+ distinct test cases. The methodologies and findings of this research were formally published in IEEE.</p>
+            <div class="btn-group">
+                <a href="https://github.com/your-username/reunite" target="_blank" class="btn btn-source">View Source Code</a>
+                <button class="btn btn-live btn-disabled" title="Live instance is temporarily suspended while the model undergoes retraining and maintenance.">Visit Live Project</button>
+            </div>
+        </section>
+
+        <section id="smart-assistant" class="project-card">
+            <h2 class="project-title">Smart Email Assistant & ML Chat-bot</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Java Spring Boot</span>
+                <span class="tech-tag">LLM Integration</span>
+                <span class="tech-tag">Chrome Extension API</span>
+                <span class="tech-tag">JavaScript</span>
+            </div>
+            <p class="project-desc">Built a full-stack automated reply system that significantly streamlines daily communications. Leveraged a robust Java back-end to interface directly with Large Language Models (LLMs) to provide tone-adjusted drafting. Seamlessly integrated via a custom Chrome Extension, successfully reducing average email composition time by 40%.</p>
+            <div class="btn-group">
+                <a href="https://github.com/your-username/smart-assistant" target="_blank" class="btn btn-source">View Source Code</a>
+                <button class="btn btn-live btn-disabled" title="Live extension server is currently offline for API updates and maintenance.">Visit Live Project</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Gaurav Amarnani. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
