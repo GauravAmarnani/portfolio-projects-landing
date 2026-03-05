@@ -12,57 +12,58 @@
             --secondary: #3b82f6;
             --text: #0f172a;
             --text-light: #64748b;
-            --glass: rgba(255, 255, 255, 0.95);
+            --glass: rgba(255, 255, 255, 0.98);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
         html { scroll-behavior: smooth; }
         
-        /* Navigation Overhaul */
-        nav { position: sticky; top: 0; background: var(--glass); backdrop-filter: blur(12px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        .nav-name { font-weight: 800; font-size: 1.3rem; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-label { font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
-        .nav-btn { text-decoration: none; background: #eff6ff; color: var(--primary); padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; border: 1px solid #dbeafe; transition: 0.3s; }
+        /* Responsive Navigation */
+        nav { position: sticky; top: 0; background: var(--glass); backdrop-filter: blur(12px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
+        .nav-name { font-weight: 800; font-size: 1.3rem; color: var(--primary); text-decoration: none; min-width: max-content; }
+        
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .nav-label { font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-btn { text-decoration: none; background: #eff6ff; color: var(--primary); padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 0.8rem; border: 1px solid #dbeafe; transition: 0.3s; white-space: nowrap; }
         .nav-btn:hover { background: var(--primary); color: white; }
 
-        /* Header */
-        header { padding: 100px 10% 60px; text-align: center; background: radial-gradient(circle at top right, #eff6ff, #ffffff); }
-        .tech-pill { display: inline-block; padding: 6px 16px; background: #dbeafe; color: #1e40af; border-radius: 50px; font-size: 0.75rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
-        header h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1.5px; line-height: 1.1; }
-        header p { max-width: 700px; margin: 0 auto; color: var(--text-light); font-size: 1.2rem; }
+        /* Hero Section */
+        header { padding: clamp(60px, 10vh, 100px) 5% 40px; text-align: center; background: radial-gradient(circle at top right, #eff6ff, #ffffff); }
+        header h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; letter-spacing: -1.5px; line-height: 1.1; }
+        header p { max-width: 700px; margin: 0 auto; color: var(--text-light); font-size: clamp(1rem, 2vw, 1.2rem); }
 
         /* Project Cards */
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        .project-card { background: white; border-radius: 20px; padding: 45px; margin-bottom: 50px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; position: relative; }
-        .project-title { font-size: 2rem; font-weight: 800; color: var(--text); margin-bottom: 15px; }
-        .tag { background: #f1f5f9; padding: 5px 14px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: #475569; margin-right: 8px; }
-
-        /* Buttons */
-        .btn-container { display: flex; gap: 15px; margin-top: 35px; }
-        .btn { display: flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; cursor: pointer; border: none; }
-        .btn-github { background: #0f172a; color: white; }
-        .btn-github:hover { background: #334155; transform: translateY(-2px); }
-        .btn-github svg { width: 20px; height: 20px; fill: white; }
+        .project-card { background: white; border-radius: 20px; padding: clamp(25px, 5vw, 45px); margin-bottom: 40px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
+        .project-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 15px; }
         
-        .btn-live { background: #f1f5f9; color: #94a3b8; cursor: not-allowed; position: relative; border: 1px solid #e2e8f0; }
-        .btn-live:hover::after { content: "System currently down for maintenance/updation"; position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 10px 15px; border-radius: 8px; font-size: 0.75rem; white-space: nowrap; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .tag-container { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #f1f5f9; padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: #475569; }
+
+        /* Buttons with SVG */
+        .btn-container { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; flex: 1; min-width: 200px; }
+        .btn-github { background: #0f172a; color: white; border: none; }
+        .btn-github:hover { background: #334155; transform: translateY(-2px); }
+        .btn-github svg { width: 18px; height: 18px; fill: currentColor; }
+        
+        .btn-live { background: #f1f5f9; color: #94a3b8; cursor: not-allowed; border: 1px solid #e2e8f0; position: relative; }
+        .btn-live:hover::after { content: "System currently down for maintenance/updation"; position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 8px 12px; border-radius: 6px; font-size: 0.7rem; white-space: normal; width: 200px; text-align: center; }
 
         /* Contact Section */
-        .contact-section { background: #f1f5f9; padding: 100px 10%; margin-top: 50px; text-align: center; }
-        .contact-card { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
-        .form-group { text-align: left; margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid #cbd5e1; outline: none; transition: 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); }
-        .btn-submit { background: var(--primary); color: white; width: 100%; padding: 14px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none; }
-        
-        footer { padding: 40px; text-align: center; color: var(--text-light); font-size: 0.9rem; }
+        .contact-section { background: #f1f5f9; padding: 80px 5%; text-align: center; }
+        .contact-card { max-width: 600px; margin: 0 auto; background: white; padding: clamp(20px, 5vw, 40px); border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .form-group { text-align: left; margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 5px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; }
+        .btn-submit { background: var(--primary); color: white; width: 100%; padding: 14px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; margin-top: 10px; }
 
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; text-align: center; }
-            header h1 { font-size: 2.5rem; }
-            .btn-container { flex-direction: column; }
+        /* Mobile Adjustments */
+        @media (max-width: 850px) {
+            nav { flex-direction: column; gap: 15px; padding: 1rem; }
+            .nav-right { flex-wrap: wrap; justify-content: center; }
+            .nav-label { width: 100%; text-align: center; margin-bottom: 5px; }
+            .btn { flex: 1 1 100%; }
         }
     </style>
 </head>
@@ -70,26 +71,24 @@
     <nav>
         <a href="#" class="nav-name">Gaurav Amarnani</a>
         <div class="nav-right">
-            <span class="nav-label">Jump To Project:</span>
-            <a href="#dist" class="nav-btn">Dist. Systems</a>
-            <a href="#ecom" class="nav-btn">E-commerce</a>
-            <a href="#contact" class="nav-btn" style="background:var(--text); color:white; border:none;">Contact</a>
+            <span class="nav-label">Jump to Project</span>
+            <a href="#distributed" class="nav-btn">Distributed Transaction Platform</a>
+            <a href="#freshmart" class="nav-btn">FreshMart E-commerce</a>
         </div>
     </nav>
 
     <header>
-        <span class="tech-pill">Core Architecture</span>
-        <h1>Reliable Backend Systems.</h1>
-        <p>Specializing in Java microservices, distributed data consistency, and cloud-native scalability.</p>
+        <h1>Core Backend Architecture</h1>
+        <p>Specializing in Java microservices, high-availability cloud infrastructure, and distributed data consistency.</p>
     </header>
 
     <div class="container">
-        <section id="dist" class="project-card">
+        <section id="distributed" class="project-card">
             <h2 class="project-title">Distributed Transaction Platform</h2>
-            <div style="margin-bottom: 20px;">
-                <span class="tag">Java 17</span> <span class="tag">Kafka</span> <span class="tag">Saga Orchestration</span>
+            <div class="tag-container">
+                <span class="tag">Java 17</span> <span class="tag">Kafka</span> <span class="tag">Saga Orchestration</span> <span class="tag">AWS</span>
             </div>
-            <p>Built a banking-grade system ensuring 100% data consistency across distributed nodes. Resolved dual-write issues using Kafka, handling high-volume secure transactions.</p>
+            <p>Built a banking-grade system ensuring 100% data consistency across distributed nodes. Resolved dual-write issues using Kafka, handling high-volume secure transactions with a focus on fault tolerance.</p>
             <div class="btn-container">
                 <a href="#" class="btn btn-github">
                     <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -99,12 +98,12 @@
             </div>
         </section>
 
-        <section id="ecom" class="project-card">
-            <h2 class="project-title">FreshMart (E-commerce API)</h2>
-            <div style="margin-bottom: 20px;">
-                <span class="tag">Spring Boot</span> <span class="tag">Resilience4j</span> <span class="tag">AWS</span>
+        <section id="freshmart" class="project-card">
+            <h2 class="project-title">FreshMart (Scalable E-commerce)</h2>
+            <div class="tag-container">
+                <span class="tag">Spring Boot</span> <span class="tag">Resilience4j</span> <span class="tag">Feign Client</span> <span class="tag">Microservices</span>
             </div>
-            <p>Designed a microservices architecture with client-side load balancing and fault tolerance. Optimized for low-latency service-to-service communication.</p>
+            <p>Engineered a REST-based microservices architecture. Integrated client-side load balancing and fault tolerance, reducing inter-service latency and ensuring 99.9% availability during peak traffic simulations.</p>
             <div class="btn-container">
                 <a href="#" class="btn btn-github">
                     <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -116,26 +115,19 @@
     </div>
 
     <section id="contact" class="contact-section">
-        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Let's Connect</h2>
         <div class="contact-card">
+            <h2 style="margin-bottom: 25px;">Contact Me</h2>
             <form>
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="john@example.com">
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea rows="5" placeholder="Let's discuss a project..."></textarea>
-                </div>
+                <div class="form-group"><label>Name</label><input type="text" placeholder="Gaurav Amarnani"></div>
+                <div class="form-group"><label>Email</label><input type="email" placeholder="gaurav@example.com"></div>
+                <div class="form-group"><label>Message</label><textarea rows="4" placeholder="How can I help you?"></textarea></div>
                 <button type="submit" class="btn-submit">Send Message</button>
             </form>
         </div>
     </section>
 
-    <footer><p>&copy; 2026 Gaurav Amarnani | Built for Performance</p></footer>
+    <footer style="padding: 30px; text-align: center; color: var(--text-light); font-size: 0.8rem;">
+        &copy; 2026 Gaurav Amarnani. All rights reserved.
+    </footer>
 </body>
 </html>
